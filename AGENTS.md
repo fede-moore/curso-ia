@@ -32,6 +32,14 @@ pero ayer sí, la racha sigue viva y se cuenta desde ayer.
 - Mejor racha = la secuencia histórica más larga de días consecutivos con sesiones,
   calculada desde las fechas locales válidas y sin contar fechas futuras.
 - Calcula la mejor racha desde las sesiones guardadas; no persistas un valor derivado.
+- Semana = de lunes a domingo según la fecha local del usuario. Los minutos de la semana
+  se calculan sumando las sesiones válidas dentro de esa semana, excluyendo fechas
+  futuras, y se muestran como horas y minutos (ej. `2 h 30 min`). Es un valor derivado:
+  no se persiste.
+- Mes = mes calendario local (del día 1 al último día del mes). Los días estudiados del
+  mes se cuentan sobre las fechas locales válidas, excluyendo fechas futuras; varias
+  sesiones el mismo día cuentan como un día. Se muestran como `X días` (o `1 día`). Es un
+  valor derivado: no se persiste.
 
 ## Forma de trabajar
 - Haz solo lo que se pide: no añadas funcionalidades por tu cuenta.
@@ -42,13 +50,15 @@ pero ayer sí, la racha sigue viva y se cuenta desde ayer.
 - ✅ Siempre: respetar las reglas de fechas y racha, mantener los textos en español.
 - ⚠️ Pregunta antes: crear archivos nuevos, cambiar el formato de los datos guardados.
 - 🚫 Nunca: añadir dependencias, frameworks o un paso de build.
-✅ Siempre: actualizar `MEMORY.md` al terminar cada tarea. 
+- ✅ Siempre: actualizar `MEMORY.md` al terminar cada tarea.
 
 
 ## Verificación
-- No hay tests ni lint. Probar abriendo `index.html` en el navegador.
+- No hay tests automáticos. Después de cada cambio, verifica con el MCP de Chrome
+DevTools: abre `index.html`, prueba la funcionalidad, revisa la consola y comprueba la
+vista móvil.
 - Para empezar de cero: DevTools → Application → Local Storage → borrar la clave
-`diario-estudio-sesiones`.
+`diario-de-estudio-sesiones`.
 
 ## Memoria
 - Al empezar, lee `MEMORY.md` para conocer el estado del proyecto y las decisiones
@@ -58,4 +68,10 @@ porqué) y errores a evitar.
 - Mantenlo breve (máximo ~50 líneas): resume o elimina lo que ya no aporte.
 - Si algo se convierte en una regla permanente, propón moverlo a `AGENTS.md` en lugar de
 dejarlo en la memoria.
-- No guardes nunca datos sensibles (clav es, tokens, datos personales).
+- No guardes nunca datos sensibles (claves, tokens, datos personales).
+
+## Comandos
+- Tests: `node --test`
+
+## Reglas
+- Lee `docs/constitution.md` y la spec activa (`specs/NNN-*/`) antes de tocar código. 
