@@ -16,9 +16,65 @@
   </head>
   <body>
     <main class="app">
-      <section class="panel form-panel">
+      <header class="masthead">
         <h1>Diario de Estudio</h1>
+      </header>
 
+      <section
+        class="panel stats-panel"
+        aria-label="Rachas y progreso de estudio"
+        aria-live="polite"
+      >
+        <div class="hero">
+          <span class="hero-fire" aria-hidden="true">🔥</span>
+          <p class="hero-figure">
+            <span id="streak-count" class="hero-count">0</span>
+            <span id="streak-unit" class="hero-unit">días</span>
+          </p>
+          <p class="hero-caption">Racha actual</p>
+        </div>
+
+        <dl class="stats-row">
+          <div class="stat">
+            <dt><span aria-hidden="true">🏆</span> Mejor racha</dt>
+            <dd><span id="best-streak-count">0</span> <span id="best-streak-unit">días</span></dd>
+          </div>
+          <div class="stat">
+            <dt><span aria-hidden="true">⏱️</span> Esta semana</dt>
+            <dd><span id="week-minutes">0 min</span></dd>
+          </div>
+          <div class="stat">
+            <dt><span aria-hidden="true">📅</span> Este mes</dt>
+            <dd><span id="month-days">0</span> <span id="month-days-unit">días</span></dd>
+          </div>
+        </dl>
+      </section>
+
+      <section
+        id="heatmap-panel"
+        class="panel heatmap-panel"
+        aria-label="Mapa de calor de días estudiados"
+      >
+        <h2>Últimas 12 semanas</h2>
+        <div id="heatmap-grid" class="heatmap-grid"></div>
+        <p class="heatmap-legend">
+          <span class="legend-cell level-0" aria-hidden="true"></span>
+          <span>Sin estudio</span>
+          <span class="legend-sep" aria-hidden="true">·</span>
+          <span>Menos</span>
+          <span class="legend-cell level-1" aria-hidden="true"></span>
+          <span class="legend-cell level-2" aria-hidden="true"></span>
+          <span class="legend-cell level-3" aria-hidden="true"></span>
+          <span class="legend-cell level-4" aria-hidden="true"></span>
+          <span>Más</span>
+          <span class="legend-sep" aria-hidden="true">·</span>
+          <span class="legend-cell is-future" aria-hidden="true"></span>
+          <span>día futuro</span>
+        </p>
+        <div id="heatmap-tooltip" class="heatmap-tooltip" aria-hidden="true" hidden></div>
+      </section>
+
+      <section class="panel form-panel">
         <form id="session-form" autocomplete="off">
           <div class="field">
             <label for="date">Fecha</label>
@@ -55,37 +111,13 @@
         </form>
       </section>
 
-      <section
-        class="panel streak-panel"
-        aria-label="Rachas de estudio"
-        aria-live="polite"
-      >
-        <div class="streak-metrics">
-          <div class="streak-metric">
-            <p class="panel-label">Racha actual</p>
-            <div class="streak-row">
-              <span class="fire" aria-hidden="true">🔥</span>
-              <span id="streak-count" class="streak-count">0</span>
-            </div>
-            <p id="streak-unit" class="streak-unit">días</p>
-          </div>
-          <div class="streak-metric best-streak">
-            <p class="panel-label">Mejor racha</p>
-            <div class="streak-row">
-              <span class="trophy" aria-hidden="true">🏆</span>
-              <span id="best-streak-count" class="streak-count best-streak-count">0</span>
-            </div>
-            <p id="best-streak-unit" class="streak-unit">días</p>
-          </div>
-        </div>
-      </section>
-
       <section class="panel sessions-panel">
         <h2>Sesiones</h2>
         <ul id="sessions-list" class="sessions-list"></ul>
       </section>
     </main>
 
+    <script src="logic.js"></script>
     <script src="app.js"></script>
   </body>
 </html>

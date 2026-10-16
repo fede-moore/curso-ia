@@ -1,3 +1,6 @@
+ “Pedido inicial — referencia histórica”
+ Este documento conserva el pedido original. Para las tareas actuales, sigue las instrucciones del agente en .github/agents/diario-de-estudio.agent.md.
+
 ## Rol
 Actúa como desarrollador frontend senior que escribe código simple, claro y fácil de
 entender para alguien que está empezando a programar.
